@@ -11,6 +11,4 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->get('/turbine-data', 'TurbineController@index');
