@@ -24,6 +24,14 @@ class TurbineController extends Controller
     }
 
     /**
+     * Get the status codes
+     */
+    public function codes(): JsonResponse
+    {
+        return response()->json(self::STATUS_CODES);
+    }
+
+    /**
      * Map over turbines and inspect each
      */
     private function inspectTurbines(): Array

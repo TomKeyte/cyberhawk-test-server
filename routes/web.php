@@ -12,3 +12,4 @@
 */
 
 $router->get('/turbine-data', 'TurbineController@index');
+$router->get('/turbine-codes', 'TurbineController@codes');

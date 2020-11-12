@@ -50,4 +50,12 @@ class DataTest extends TestCase
 
         $this->assertEquals($expected, $this->turbineData[14]);
     }
+
+    /** @test */
+    public function it_returns_the_turbine_codes() {
+        $response = $this->get('/turbine-codes');
+        $codes = json_decode($response->response->getContent(), true);
+
+        $this->assertEquals(TurbineController::STATUS_CODES, $codes);
+    }
 }
