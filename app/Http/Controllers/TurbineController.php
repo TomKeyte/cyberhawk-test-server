@@ -55,9 +55,10 @@ class TurbineController extends Controller
      * 
      * @param string $turbineNumber
      */
-    private function turbineInspect(int $turbineNumber): string
+    private function turbineInspect(int $turbineNumber): array
     {
         $output = [];
+        $status = '';
         foreach (self::STATUS_CODES as $code => $message) {
             if ($turbineNumber % $code === 0) {
                 $output[] = $message;
@@ -65,9 +66,9 @@ class TurbineController extends Controller
         }
 
         if (!empty($output)) {
-            return implode(" and ", $output);
+            $status =  implode(" and ", $output);
         }
 
-        return (string) $turbineNumber;
+        return ['id' => $turbineNumber, 'status' => $status];
     }
 }
