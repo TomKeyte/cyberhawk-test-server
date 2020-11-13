@@ -24,6 +24,14 @@ class TurbineController extends Controller
     }
 
     /**
+     * Get the status for an individual turbine
+     */
+    public function show($turbine): JsonResponse
+    {
+        return response()->json($this->turbineInspect($turbine));
+    }
+
+    /**
      * Get the status codes
      */
     public function codes(): JsonResponse

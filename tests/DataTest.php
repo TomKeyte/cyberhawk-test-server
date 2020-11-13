@@ -58,4 +58,11 @@ class DataTest extends TestCase
 
         $this->assertEquals(TurbineController::STATUS_CODES, $codes);
     }
+
+    /** @test */
+    public function it_returns_the_correct_status_code_when_inspecting_a_single_turbine()
+    {
+        $status = json_decode($this->get('/turbine-data/' . '3')->response->getContent());
+        $this->assertEquals(TurbineController::STATUS_CODES[3], $status);
+    }
 }
